@@ -32,8 +32,8 @@ export function HeroSection({ onShopClick }) {
                 SHOP COLLECTION
               </button>
 
-              <a
-                href={`https://wa.me/${STORE_INFO.whatsAppNumber}?text=${encodeURIComponent("Hello De Jenny Collection! I would like to explore your latest collection.")}`}
+              
+              <a  href={`https://wa.me/${STORE_INFO.whatsAppNumber}?text=${encodeURIComponent("Hello De Jenny Collection! I would like to explore your latest collection.")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-4 border border-stone-800 text-stone-900 text-xs font-semibold tracking-[0.2em] uppercase hover:bg-stone-900 hover:text-white transition-all flex items-center justify-center gap-2.5"
@@ -53,7 +53,7 @@ export function HeroSection({ onShopClick }) {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md aspect-[3/4] bg-stone-300 shadow-2xl overflow-hidden group">
               <img
-                src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=85"
+                src="https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?auto=format&fit=crop&w=1000&q=85"
                 alt="De Jenny Collection Editorial Feature"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
