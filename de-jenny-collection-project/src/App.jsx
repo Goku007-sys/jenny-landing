@@ -461,18 +461,19 @@ function HeroSection({ onShopClick }) {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md aspect-[3/4] bg-stone-300 shadow-2xl overflow-hidden group border border-[#E8E1D5]">
               <img
-                src="https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?auto=format&fit=crop&w=1000&q=85"
+                // src="https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?auto=format&fit=crop&w=1000&q=85"
+                src="/images/products/hero-main.jpg"
                 alt="De Jenny Collection Editorial Feature"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              
+
               <div className="absolute bottom-6 left-6 right-6 bg-[#FAF7F2]/95 backdrop-blur-md p-4 border border-stone-200">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-[9px] tracking-[0.25em] text-stone-500 uppercase">Featured Silhouette</p>
-                    {/* <h3 className="font-serif text-base font-medium text-stone-900">Amina Pleated Halter</h3> */}
+                    {/* <h3 className="font-serif text-base font-medium text-stone-900">Fitted Lace-Trim Capri Set</h3> */}
                     <h3 className="font-serif text-base font-medium text-stone-900">Fitted Lace-Trim Capri Set</h3>
                   </div>
                   <span className="font-sans text-xs font-semibold tracking-wider text-stone-900">
@@ -526,11 +527,10 @@ function QuickViewModal({ product, onClose, selectedSize, onSelectSize, onAddToC
                   <button
                     key={sz}
                     onClick={() => onSelectSize(sz)}
-                    className={`w-10 h-10 text-xs font-semibold flex items-center justify-center border transition-all ${
-                      selectedSize === sz
+                    className={`w-10 h-10 text-xs font-semibold flex items-center justify-center border transition-all ${selectedSize === sz
                         ? 'bg-stone-950 text-white border-stone-950'
                         : 'bg-white text-stone-700 border-stone-300 hover:border-stone-500'
-                    }`}
+                      }`}
                   >
                     {sz}
                   </button>
@@ -722,10 +722,12 @@ function SearchModal({ isOpen, onClose, searchQuery, onSearchChange, filteredPro
   );
 }
 
-function ProductCard({ product, isFavorite, onToggleWishlist, onQuickView }) {
+// function ProductCard({ product, isFavorite, onToggleWishlist, onQuickView }) {
+function ProductCard({ product, onQuickView }) {
   return (
     <div className="group flex flex-col">
-      <div className="relative aspect-[3/4] bg-stone-200 overflow-hidden mb-4 border border-[#ECE5DA]">
+      {/* <div className="relative aspect-[3/4] bg-stone-200 overflow-hidden mb-4 border border-[#ECE5DA]"> */}
+      <div className="relative aspect-[3/4] bg-stone-200 overflow-hidden mb-4 border border-[#ECE5DA] rounded-lg">
         <img
           src={product.image}
           alt={product.name}
@@ -739,13 +741,13 @@ function ProductCard({ product, isFavorite, onToggleWishlist, onQuickView }) {
           </span>
         )}
 
-        <button
+        {/* <button
           onClick={(e) => onToggleWishlist(product.id, e)}
           aria-label="Save to favorites"
           className="absolute top-3 right-3 w-8 h-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-stone-700 hover:text-red-500 transition-colors shadow-sm"
         >
           <Heart className={`w-4 h-4 ${isFavorite ? 'fill-red-500 text-red-500' : ''}`} />
-        </button>
+        </button> */}
 
         <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-stone-950/80 via-stone-950/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
           <button
@@ -800,7 +802,7 @@ export default function App() {
   const [selectedCategory, setSelectedCategory] = useState('ALL');
   const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState([]);
-  const [wishlist, setWishlist] = useState(['djc-01', 'djc-06']);
+  // const [wishlist, setWishlist] = useState(['djc-01', 'djc-06']);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -815,16 +817,16 @@ export default function App() {
     setTimeout(() => setIsToastOpen(false), 3200);
   };
 
-  const toggleWishlist = (productId, e) => {
-    e?.stopPropagation();
-    if (wishlist.includes(productId)) {
-      setWishlist(wishlist.filter(id => id !== productId));
-      triggerToast('Item removed from your saved list');
-    } else {
-      setWishlist([...wishlist, productId]);
-      triggerToast('Added to your personal wishlist');
-    }
-  };
+  // const toggleWishlist = (productId, e) => {
+  //   e?.stopPropagation();
+  //   if (wishlist.includes(productId)) {
+  //     setWishlist(wishlist.filter(id => id !== productId));
+  //     triggerToast('Item removed from your saved list');
+  //   } else {
+  //     setWishlist([...wishlist, productId]);
+  //     triggerToast('Added to your personal wishlist');
+  //   }
+  // };
 
   const addToCart = (product, size = 'M') => {
     setCart(prev => {
@@ -905,7 +907,7 @@ export default function App() {
 
       <HeroSection onShopClick={() => scrollToSection('shop', 'ALL')} />
 
-      {}
+      { }
       <section id="collections" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <span className="text-[11px] tracking-[0.28em] uppercase text-stone-500 font-medium block mb-2">
@@ -943,9 +945,11 @@ export default function App() {
         </div>
       </section>
 
-      {}
-      <section id="shop" className="py-16 bg-[#FAF7F2] border-t border-[#EBE5DA]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      { }
+      {/* <section id="shop" className="py-16 bg-[#FAF7F2] border-t border-[#EBE5DA]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+        <section id="shop" className="py-16 bg-[#FAF7F2] border-t border-[#EBE5DA]">
+  <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-[#E8E1D5] gap-6">
             <div>
               <span className="text-[11px] tracking-[0.28em] uppercase text-stone-500 font-medium block mb-2">
@@ -964,11 +968,10 @@ export default function App() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 text-[11px] tracking-[0.16em] uppercase font-medium transition-all ${
-                    selectedCategory === category
+                  className={`px-4 py-2 text-[11px] tracking-[0.16em] uppercase font-medium transition-all ${selectedCategory === category
                       ? 'bg-stone-950 text-white shadow-sm'
                       : 'bg-[#F2ECE1] text-stone-700 hover:bg-stone-300'
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -985,11 +988,16 @@ export default function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
             {filteredProducts.map((product) => (
+              // <ProductCard
+              //   key={product.id}
+              //   product={product}
+              //   isFavorite={wishlist.includes(product.id)}
+              //   onToggleWishlist={toggleWishlist}
+              //   onQuickView={openQuickView}
+              // />
               <ProductCard
                 key={product.id}
                 product={product}
-                isFavorite={wishlist.includes(product.id)}
-                onToggleWishlist={toggleWishlist}
                 onQuickView={openQuickView}
               />
             ))}
@@ -1007,7 +1015,7 @@ export default function App() {
         </div>
       </section>
 
-      {}
+      { }
       <section className="relative py-28 bg-stone-900 text-white overflow-hidden my-6">
         <div className="absolute inset-0 z-0">
           <img
@@ -1048,7 +1056,7 @@ export default function App() {
         </div>
       </section>
 
-      {}
+      { }
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-b border-[#EBE5DA]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
@@ -1068,7 +1076,7 @@ export default function App() {
         </div>
       </section>
 
-      {}
+      { }
       <section id="about" className="py-24 bg-[#FAF7F2]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -1126,7 +1134,7 @@ export default function App() {
         </div>
       </section>
 
-      {}
+      { }
       <section className="py-20 bg-[#F4EFE6] border-y border-[#EBE3D7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
@@ -1184,7 +1192,7 @@ export default function App() {
         </div>
       </section>
 
-      {}
+      { }
       <section id="reviews" className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-[11px] tracking-[0.28em] uppercase text-stone-500 font-medium block">
@@ -1230,7 +1238,7 @@ export default function App() {
         </div>
       </section>
 
-      {}
+      { }
       <section id="contact" className="py-20 bg-[#F4EFE6] border-t border-[#EBE3D7]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
           <div className="w-14 h-14 mx-auto rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366]">
@@ -1269,13 +1277,16 @@ export default function App() {
             </a>
           </div>
 
-          <div className="pt-6 text-xs text-stone-500">
+          {/* <div className="pt-6 text-xs text-stone-500">
             Official line: <span className="font-semibold text-stone-800">{STORE_INFO.whatsAppDisplay}</span> • Available Mon – Sat for orders & inquiries.
-          </div>
+          </div> */}
+          <div className="pt-6 text-xs text-stone-500">
+  Available Mon – Sat for orders & inquiries.
+</div>
         </div>
       </section>
 
-      {}
+      { }
       <footer className="bg-stone-950 text-stone-300 pt-16 pb-12 border-t border-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-stone-800">
@@ -1357,7 +1368,7 @@ export default function App() {
         </div>
       </footer>
 
-      {}
+      { }
       <QuickViewModal
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
