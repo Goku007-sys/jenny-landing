@@ -472,7 +472,8 @@ function HeroSection({ onShopClick }) {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-[9px] tracking-[0.25em] text-stone-500 uppercase">Featured Silhouette</p>
-                    <h3 className="font-serif text-base font-medium text-stone-900">Amina Pleated Halter</h3>
+                    {/* <h3 className="font-serif text-base font-medium text-stone-900">Amina Pleated Halter</h3> */}
+                    <h3 className="font-serif text-base font-medium text-stone-900">Fitted Lace-Trim Capri Set</h3>
                   </div>
                   <span className="font-sans text-xs font-semibold tracking-wider text-stone-900">
                     ₦68,000

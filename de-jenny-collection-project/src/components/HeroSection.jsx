@@ -53,7 +53,8 @@ export function HeroSection({ onShopClick }) {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-full max-w-md aspect-[3/4] bg-stone-300 shadow-2xl overflow-hidden group">
               <img
-                src="https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?auto=format&fit=crop&w=1000&q=85"
+                src="/images/products/hero-main.jpg"
+                // src="https://images.unsplash.com/photo-1595882669314-919b3d51f2c7?auto=format&fit=crop&w=1000&q=85"
                 alt="De Jenny Collection Editorial Feature"
                 className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
